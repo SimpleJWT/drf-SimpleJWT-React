@@ -17,37 +17,3 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
-
-# frontend ignore files.
-
-# dependencies
-jwt-react/node_modules
-jwt-react/.pnp
-jwt-react/.pnp.js
-
-# testing
-jwt-react/coverage
-
-# production
-jwt-react/build
-
-
-jwt-react/npm-debug.log*
-jwt-react/yarn-debug.log*
-jwt-react/yarn-error.log*
-
-# profiling files
-jwt-react/chrome-profiler-events*.json
-jwt-react/speed-measure-plugin*.json
-
-# misc front end stuff.
-jwt-react/.sass-cache
-jwt-react/connect.lock
-jwt-react/coverage
-jwt-react/libpeerconnection.log
-jwt-react/npm-debug.log
-jwt-react/yarn-error.log
-jwt-react/testem.log
-jwt-react/typings
-
-
