@@ -44,7 +44,9 @@ as well -- and thus more supported by SimpleJWT.
 
 1. `cd jwt-react` to get your terminal/server into the frontend (react) folder.
 
-2. `npm start` and you should be good to go, ensure that your backend is running on port `http://localhost:8000`, if you run it on another port/ip please change the `BASE_URL` in `jwt-react/src/api/auth.js`
+2. `npm install` to install all of the dependencies for the front end application.
+
+3. `npm start` and you should be good to go, ensure that your backend is running on port `http://localhost:8000`, if you run it on another port/ip please change the `BASE_URL` in `jwt-react/src/api/auth.js`
 
 
 ---
