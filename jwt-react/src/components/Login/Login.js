@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { UserContext } from '../../contexts/userContext.js'
-import { loginUser, refreshToken } from '../../api/auth.js'
+import { loginUser, logoutUser } from '../../api/auth.js'
 
 
 
@@ -31,10 +31,19 @@ function Login() {
     return true;
   }
 
+  const logout = () => {
+    logoutUser()
+    setUser(null);
+  }
+
   return <div>
     {
       isUserLoggedIn() ?
-      <h3>{user.username} is currently Logged in</h3> : 
+      <React.Fragment>
+      <h3>{user.username} is currently Logged in</h3>
+        <button onClick={logout}>Logout</button>
+      </React.Fragment>
+      :
       <React.Fragment>
       <h2>Login</h2>
         <form onSubmit={onLoginFormSubmit} method="POST">

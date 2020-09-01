@@ -42,7 +42,7 @@ const refreshToken = () => {
     })
 }
 
-const removeTokens = () => {
+const logout = () => {
   tokenStorage.removeItem(ACCESS_TOKEN)
   tokenStorage.removeItem(REFRESH_TOKEN)
 }
@@ -94,4 +94,11 @@ authRequest.interceptors.response.use(
   }
 );
 
-export { loginUser, refreshToken, removeTokens, authRequest }
+
+const logoutUser = () => {
+  tokenStorage.removeItem(ACCESS_TOKEN);
+  tokenStorage.removeItem(REFRESH_TOKEN);
+  authRequest.defaults.headers['Authorization'] = "";
+}
+
+export { loginUser, logoutUser, refreshToken, authRequest }
