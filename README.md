@@ -48,6 +48,8 @@ as well -- and thus more supported by SimpleJWT.
 
 3. `npm start` and you should be good to go, ensure that your backend is running on port `http://localhost:8000`, if you run it on another port/ip please change the `BASE_URL` in `jwt-react/src/api/auth.js`
 
+4. Use `npm test` if you'd like to run the test which tests the api/ folder currently.
+
 
 ---
 ### License
