@@ -12,6 +12,9 @@ function App() {
     return !!user;
   }
 
+  /* referring to <UserContext.Provider value={{user, setUser, isUserLoggedIn}}> and other instances.
+  * since the values are stored as variables in context, it's not necessary to escape the values for XSS-sake.
+  */
   return (
     <div className="App">
       <UserContext.Provider value={{user, setUser, isUserLoggedIn}}>
