@@ -74,8 +74,6 @@ authRequest.interceptors.response.use(
 );
 
 const errorInterceptor = (error) => {
-  // console.log(error.config)
-  // console.log(error.response)
   const originalRequest = error.config;
   const status = error.response.status;
   if (isCorrectRefreshError(status)) {
@@ -85,10 +83,9 @@ const errorInterceptor = (error) => {
       originalRequest.headers['Authorization'] = headerAuthorization;
       return authRequest(originalRequest)
     }).catch((error)=> {
-      // Note If you are using browser router you can redirect here
+      return Promise.reject(error)
     })
   }
-  // Note If you are using browser router you can redirect here as well.
   return Promise.reject(error)
 }
 
