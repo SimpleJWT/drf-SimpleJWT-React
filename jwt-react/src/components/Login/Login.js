@@ -1,14 +1,23 @@
 import React, { useState, useContext } from 'react';
+import { useHistory, useLocation } from "react-router-dom";
+
 import { UserContext } from '../../contexts/userContext.js'
 import { loginUser, logoutUser } from '../../api/auth.js'
 
-
+// Hook to get query params.
+// this could be refactored to somewhere else for future contributors.
+function useQueryParams () {
+  return new URLSearchParams(useLocation().search);
+}
 
 function Login() {
+  const queryParams = useQueryParams();
+  const history = useHistory();
+  const {user, setUser, isUserLoggedIn} = useContext(UserContext)
+
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [errorDisplay, setErrorDisplay] = useState("")
-  const {user, setUser, isUserLoggedIn} = useContext(UserContext)
 
   const onLoginFormSubmit = (event) => {
     event.preventDefault();
@@ -17,9 +26,18 @@ function Login() {
     }
     loginUser(username, password).then((data)=>{
       setUser({username: username})
+      history.push(getRouteAfterLogin());
     }).catch((error)=> {
       setErrorDisplay()
     })
+  }
+
+  const getRouteAfterLogin = () => {
+    let route = queryParams.get("next")
+    if (route === null) {
+      route = "/";
+    }
+    return route
   }
 
   const isValidForm = () => {
