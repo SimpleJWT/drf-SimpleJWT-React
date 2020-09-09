@@ -168,5 +168,6 @@ STATIC_URL = '/static/'
 # Cors Settings
 CORS_ALLOW_CREDENTIALS = True
 
-# Below needs to be changed for production
-CORS_ORIGIN_WHITELIST = ['http://localhost:3000']
+# NOTE:
+# change 'https://example-prod-react.com' to your frontend domain
+CORS_ORIGIN_WHITELIST = ['http://localhost:3000', 'https://example-prod-react.com']
