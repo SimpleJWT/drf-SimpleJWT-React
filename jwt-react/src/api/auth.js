@@ -83,6 +83,8 @@ const errorInterceptor = (error) => {
       originalRequest.headers['Authorization'] = headerAuthorization;
       return authRequest(originalRequest)
     }).catch((error)=> {
+      // if token refresh fails, logout the user to avoid potential security risks.
+      logoutUser();
       return Promise.reject(error)
     })
   }

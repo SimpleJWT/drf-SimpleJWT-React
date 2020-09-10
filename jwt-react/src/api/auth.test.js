@@ -91,4 +91,31 @@ describe("errorInterceptor", () => {
         expect(authRequest).toHaveBeenCalledWith(errorConfig)
       });
   });
+
+  test("if the error intercept refreshToken fails, logout user", () => {
+    const correctError = new Error("Token Failed");
+    tokenRequest.post.mockRejectedValue(correctError);
+    let errorConfig = {
+      url: "/api/ping/",
+      method: "get",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        Authorization: ""
+      }
+    }
+    return errorInterceptor({config: errorConfig, response: ERROR_RESPONSE})
+      .catch((error)=> {
+        expect(error).toEqual(correctError);
+      })
+      .finally(()=> {
+        expect(tokenRequest.post).toHaveBeenCalledWith('/api/token/access/',
+          {"refresh": REFRESH_TOKEN}
+        );
+        expect(errorConfig.headers['Authorization']).toEqual(``)
+        expect(window.localStorage.removeItem).toHaveBeenCalledWith(REFRESH_TOKEN);
+        expect(window.localStorage.removeItem).toHaveBeenCalledWith(ACCESS_TOKEN);
+        expect(authRequest.defaults.headers['Authorization']).toEqual("")
+      });
+  });
+
 });
