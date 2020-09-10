@@ -1,6 +1,9 @@
 import React, { useState, useContext } from 'react';
 import { useHistory, useLocation } from "react-router-dom";
 
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 import { UserContext } from '../../contexts/userContext.js'
 import { loginUser, logoutUser } from '../../api/auth.js'
 
@@ -55,35 +58,27 @@ function Login() {
   }
 
   return <div>
-    {
-      isUserLoggedIn() ?
-      <React.Fragment>
-      <h3>{user.username} is currently Logged in</h3>
-        <button onClick={logout}>Logout</button>
-      </React.Fragment>
-      :
-      <React.Fragment>
-      <h2>Login</h2>
-        <form onSubmit={onLoginFormSubmit} method="POST">
-          <label htmlFor="username">Username</label>
-          <input
-            onChange={(event)=>{setUsername(event.target.value)}}
-            type="text"
-            id="username"
-            name="username"/>
-          <br/>
-          <label htmlFor="password">Password</label>
-          <input
-            onChange={(event)=>{setPassword(event.target.value)}}
-            type="text"
-            id="password"
-            name="password"/>
-          <br/>
-          <button type="submit">login</button>
-          <p style={{color: 'red'}}>{errorDisplay}</p>
-        </form>
-      </React.Fragment>
-    }
+    <Form onSubmit={onLoginFormSubmit} method="POST">
+      <Form.Group controlId="username">
+        <Form.Label>Username</Form.Label>
+        <Form.Control
+          onChange={(event)=>{setUsername(event.target.value)}}
+          type="text"
+          id="username"
+          name="username"/>
+      </Form.Group>
+      <br/>
+      <Form.Group controlId="password">
+        <Form.Label>Password</Form.Label>
+        <Form.Control
+          onChange={(event)=>{setPassword(event.target.value)}}
+          type="text"
+          id="password"
+          name="password"/>
+      </Form.Group>
+      <Button type="submit">login</Button>
+      <p style={{color: 'red'}}>{errorDisplay}</p>
+    </Form>
   </div>
 }
 

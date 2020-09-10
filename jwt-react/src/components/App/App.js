@@ -2,6 +2,11 @@ import React, {useState} from 'react';
 import { UserContext } from '../../contexts/userContext.js';
 import './App.css';
 
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+
+
 import LoginPage from '../../pages/LoginPage.js';
 import HomePage from '../../pages/HomePage.js';
 import AuthenticatedPing from '../../pages/AuthenticatedPing.js';
@@ -32,34 +37,37 @@ function App() {
   return (
     <div className="App">
       <UserContext.Provider value={{user, setUser, isUserLoggedIn}}>
-        <h1>Sample DRF SampleJWT Repository</h1>
         <Router>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-            { isUserLoggedIn() ?
-              <Link onClick={logout}>Logout</Link>
-              :
-              <Link to="/login">Login</Link>
-            }
-            </li>
-            <li>
-              <Link to="/ping">ping</Link>
-            </li>
-          </ul>
-          <Switch>
-            <Route path="/login">
-              <LoginPage/>
-            </Route>
-            <Route path="/ping">
-              <AuthenticatedPing/>
-            </Route>
-            <Route path="/">
-              <HomePage/>
-            </Route>
-          </Switch>
+          <Container>
+            <Navbar bg="light" expand="lg">
+              <Navbar.Brand href="#home">DRF SampleJWT React Sample</Navbar.Brand>
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="mr-auto">
+                  <Nav.Link as={Link} to="/">Home</Nav.Link>
+                </Nav>
+                <Nav className="justify-content-end">
+                  <Nav.Link as={Link} to="/ping">Ping</Nav.Link>
+                  { isUserLoggedIn() ?
+                    <Nav.Link as={Link} onClick={logout}>Logout</Nav.Link>
+                    :
+                    <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                  }
+                </Nav>
+              </Navbar.Collapse>
+            </Navbar>
+            <Switch>
+                <Route exact path="/login">
+                  <LoginPage/>
+                </Route>
+                <Route exact path="/ping">
+                  <AuthenticatedPing/>
+                </Route>
+                <Route exact path="/">
+                  <HomePage/>
+                </Route>
+            </Switch>
+          </Container>
         </Router>
 
       </UserContext.Provider>

@@ -1,4 +1,7 @@
 import React, { useContext, useState } from 'react';
+
+import Button from 'react-bootstrap/Button';
+
 import { UserContext } from '../../contexts/userContext.js'
 import { ping } from '../../api/rest.js'
 
@@ -16,15 +19,10 @@ function AuthenticatedPingTest() {
   }
 
   return (<div>
-      {isUserLoggedIn() ?
-        <React.Fragment>
-          <h2>Authenticated Request Test</h2>
-          <button onClick={testPing}>Test Ping</button>
-          <p>Ping Result: {pingResult} </p>
-        </React.Fragment>
-        :
-        <p>Please Login to see the ping test</p>
-      }
+      <React.Fragment>
+        <Button onClick={testPing}>Test Ping</Button>
+        <p>Ping Result: {pingResult} </p>
+      </React.Fragment>
     </div>
   )
 }
