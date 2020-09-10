@@ -1,8 +1,8 @@
-# Template Repository for DRF SimpleJWT Apps
+# React DRF SimpleJWT App
 
-Initially created: 3 July 2020
+TL;DR: Django, DRF, DRF SimpleJWT with React Frontend sample.
 
-TL;DR: Django server repository setup for SimpleJWT. Test user: `test` and pw `test`.
+Test user: `test` and pw `test`.
 
 ---
 ### Example repositories
@@ -13,36 +13,19 @@ TL;DR: Django server repository setup for SimpleJWT. Test user: `test` and pw `t
 ---
 ### Introduction
 
-This template repository is dedicated to generating
-a Django + DRF server with SimpleJWT already setup.
-The purpose of this is to easily create repositories
-that demonstrate clear usage of SimpleJWT.
-
-If you're not using a frontend framework like React
-or some kind of mobile device not using a web browser,
-then please use session authentication. I.e. if you're
-using plain HTML with Jinja 2 template tags, use the
-built-in session authentication middlewear as that
-is proven to be the safest and thus far never broken
-method of secure authentication.
-
-Note: this template repository is adopted from
-[Andrew-Chen-Wang/mobile-auth-example](https://github.com/Andrew-Chen-Wang/mobile-auth-example)
-for Android and iOS usage. The license is Apache 2.0
-for that example repository.
+This repository is an example of using React on the front end comminicating with Django, Django Rest Framework and DRF SimpleJWT applications.
 
 ---
 ### Usage
 
-1. To generate a repository using this template,
-press "Use this template" (highlighted in green).
-Note, this will NOT create a fork of the repository.
-2. Create your git repository, connect via the ssh remote, and pull.
-3. `cd server` to get your terminal/cmd into the server directory.
-4. To run the server, create a virtual environment `virtualenv venv && source venv/bin/activate`, install packages `pip install -r requirements.txt` -- the requirements.txt file is inside the server subdirectory -- and do `python manage.py migrate && python manage.py runserver`.
+#### Backend (Django) Instructions.
+
+
+1. `cd server` to get your terminal/cmd into the server directory.
+2. To run the server, create a virtual environment `virtualenv venv && source venv/bin/activate`, install packages `pip install -r requirements.txt` -- the requirements.txt file is inside the server subdirectory -- and do `python manage.py migrate && python manage.py runserver`.
     - Again, make sure when you do this, you are inside the server directory on your terminal/cmd.
     - On Windows, you should do `venv\Scripts\activate` instead of `source venv/bin/activate`
-5. If you're writing for an example repository, please create
+3. If you're writing for an example repository, please create
 a new directory labeled with the name of the framework (e.g. jwt-ios),
 and add its `.gitignore`. Please use the
 [github/gitignore](https://github.com/github/gitignore) repository.
@@ -56,6 +39,17 @@ project.** You can use a third-party package called
 Django-ratelimit or DRF's internal throttling mechanism.
 Django-ratelimit is more extensive -- covering Django views,
 as well -- and thus more supported by SimpleJWT.
+
+#### Frontend (jwt-react) React instructions.
+
+1. `cd jwt-react` to get your terminal/server into the frontend (react) folder.
+
+2. `npm install` to install all of the dependencies for the front end application.
+
+3. `npm start` and you should be good to go, ensure that your backend is running on port `http://localhost:8000`, if you run it on another port/ip please change the `BASE_URL` in `jwt-react/src/api/auth.js`
+
+4. Use `npm test` if you'd like to run the test which tests the api/ folder currently.
+
 
 ---
 ### License
