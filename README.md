@@ -2,6 +2,12 @@
 
 TL;DR: Django, DRF, DRF SimpleJWT with React Frontend sample.
 
+The purpose of this is to get you started with a secure React-Django project.
+No need to implement authentication+authorization on your frontend when it's
+already done for you. You can start by pressing "Use this template"; it's not
+a fork but a new repository with a fresh initial commit with all the code from
+here.
+
 Test user: `test` and pw `test`.
 
 ---
@@ -9,6 +15,7 @@ Test user: `test` and pw `test`.
 
 - Android: [Andrew-Chen-Wang/mobile-auth-example](https://github.com/Andrew-Chen-Wang/mobile-auth-example)
 - iOS: [Andrew-Chen-Wang/mobile-auth-example](https://github.com/Andrew-Chen-Wang/mobile-auth-example)
+- React: [SimpleJWT/drf-SimpleJWT-React](https://github.com/SimpleJWT/drf-SimpleJWT-React)
 
 ---
 ### Introduction
