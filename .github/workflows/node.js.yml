@@ -11,8 +11,10 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./jwt-react
 
     strategy:
       matrix:
@@ -30,7 +32,6 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/jwt-react/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - run: cd jwt-react
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
