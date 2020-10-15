@@ -6,8 +6,12 @@ name: Node.js CI
 on:
   push:
     branches: [ master ]
+    paths: 
+      - 'jwt-react/**'
   pull_request:
     branches: [ master ]
+    paths: 
+      - 'jwt-react/**'
 
 jobs:
   build:
