@@ -6,6 +6,7 @@ import AuthenticatedPingTest from '../components/AuthenticatedPingTest/Authentic
 
 function AuthenticatedPing() {
   const history = useHistory();
+  // eslint-disable-next-line no-unused-vars
   const {user, setUser, isUserLoggedIn} = useContext(UserContext)
 
   /**
@@ -22,9 +23,8 @@ function AuthenticatedPing() {
   /**
    * calls redirectUnauthenticatedUser on mount and user changes.
   **/
-  useEffect(()=> {
-    redirectUnauthenticatedUser()
-  }, [,user])
+  // eslint-disable-next-line no-sparse-arrays
+  useEffect(redirectUnauthenticatedUser, [,user])
 
 
   return <div>

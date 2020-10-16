@@ -16,6 +16,7 @@ function useQueryParams () {
 function Login() {
   const queryParams = useQueryParams();
   const history = useHistory();
+  // eslint-disable-next-line no-unused-vars
   const {user, setUser, isUserLoggedIn} = useContext(UserContext)
 
   const [username, setUsername] = useState("")
@@ -52,6 +53,7 @@ function Login() {
     return true;
   }
 
+  // eslint-disable-next-line no-unused-vars
   const logout = () => {
     logoutUser()
     setUser(null);

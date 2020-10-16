@@ -7,6 +7,7 @@ import { ping } from '../../api/rest.js'
 
 function AuthenticatedPingTest() {
   const [pingResult, setPingResult] = useState();
+  // eslint-disable-next-line no-unused-vars
   const {user, setUser, isUserLoggedIn} = useContext(UserContext)
 
   const testPing = () => {
