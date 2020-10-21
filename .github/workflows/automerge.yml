@@ -24,3 +24,4 @@ jobs:
         env:
           MERGE_LABELS: "update"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MERGE_DELETE_BRANCH: true
