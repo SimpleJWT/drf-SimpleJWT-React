@@ -13,8 +13,8 @@ jobs:
         id: waitforstatuschecks
         uses: WyriHaximus/github-action-wait-for-status@v1.2.0
         with:
-          ignoreActions: automerge,WIP
-          checkInterval: 300
+          ignoreActions: worker,WIP
+          checkInterval: 100
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
