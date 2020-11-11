@@ -14,7 +14,7 @@ jobs:
         uses: WyriHaximus/github-action-wait-for-status@v1.2.0
         with:
           ignoreActions: worker,WIP
-          checkInterval: 100
+          checkInterval: 300
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -22,6 +22,6 @@ jobs:
         uses: pascalgn/automerge-action@v0.11.0
         if: steps.waitforstatuschecks.outputs.status == 'success'
         env:
-          MERGE_LABELS: "dependencies,update"
+          MERGE_LABELS: "update"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MERGE_DELETE_BRANCH: true
