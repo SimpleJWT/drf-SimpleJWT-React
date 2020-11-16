@@ -4,7 +4,7 @@
   "description": "Django, DRF, DRF SimpleJWT with React Frontend sample.",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.1.2",
     "@testing-library/user-event": "^12.2.2",
     "bootstrap": "^4.5.3",
