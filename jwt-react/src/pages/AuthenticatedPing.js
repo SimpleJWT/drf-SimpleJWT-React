@@ -24,7 +24,7 @@ function AuthenticatedPing() {
    * calls redirectUnauthenticatedUser on mount and user changes.
   **/
   // eslint-disable-next-line no-sparse-arrays
-  useEffect(redirectUnauthenticatedUser, [,user])
+  useEffect(redirectUnauthenticatedUser, [history, user, isUserLoggedIn])
 
 
   return <div>
